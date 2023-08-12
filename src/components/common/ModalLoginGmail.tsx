@@ -82,7 +82,7 @@ const ModalLoginGmail = () => {
         >
           <Box component="img" src={Logo} sx={{ width: 60, height: 48 }} />
           <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ marginTop: 2, marginBottom: 2 }}>
-            Welcome to Wibu
+            Welcome to ReconSentinel Engine
           </Typography>
 
           <GoogleLogin
@@ -143,7 +143,7 @@ const ModalLoginGmail = () => {
             Log In
           </Button>
           <Typography id="modal-modal-description" sx={{ mt: 2, justifyContent: 'center' }}>
-            By continuing, you agree to Wibu's Terms of Service and acknowledge you've read our Privacy Policy
+            By continuing, you agree to ReconSentinel Engine's Terms of Service and acknowledge you've read our Privacy Policy
           </Typography>
         </Box>
       </Modal>
