@@ -14,7 +14,7 @@ import {
   InputAdornment,
   IconButton,
 } from '@mui/material';
-import { GoogleLogin } from 'react-google-login';
+import { GoogleLogin, GoogleLoginResponse, GoogleLoginResponseOffline } from 'react-google-login';
 
 import Logo from '../../assets/image/ic_logo.png';
 import { useCommonInfo } from '../../contexts/Common';
@@ -38,8 +38,10 @@ const ModalLoginGmail = () => {
 
   const { loginGmail, handleUserLocal } = useAuth();
   const handleClose = () => setShowModalLoginGmail({ isShow: false });
-  const handleResGoogle = async (credentialResponse: any) => {
-    await loginGmail(credentialResponse.tokenId);
+  const handleResGoogle = async (credentialResponse: GoogleLoginResponse | GoogleLoginResponseOffline) => {
+    if ('tokenId' in credentialResponse) {
+      await loginGmail(credentialResponse.tokenId);
+    }
     handleClose();
   };
   const [accountLocal, setAccountLocal] = React.useState({
@@ -141,7 +143,8 @@ const ModalLoginGmail = () => {
             Log In
           </Button>
           <Typography id="modal-modal-description" sx={{ mt: 2, justifyContent: 'center' }}>
-            By continuing, you agree to ReconSentinel Engine's Terms of Service and acknowledge you've read our Privacy Policy
+            By continuing, you agree to ReconSentinel Engine's Terms of Service and acknowledge you've read our Privacy
+            Policy
           </Typography>
         </Box>
       </Modal>
