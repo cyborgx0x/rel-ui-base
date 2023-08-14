@@ -31,16 +31,14 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-interface GoogleResponse {
-  tokenId:string
-}
+
 const ModalLoginGmail = () => {
   const { showModalLoginGmail } = useCommonInfo();
   const { setShowModalLoginGmail } = useShowModalLoginGmail();
 
   const { loginGmail, handleUserLocal } = useAuth();
   const handleClose = () => setShowModalLoginGmail({ isShow: false });
-  const handleResGoogle = async (credentialResponse: GoogleResponse) => {
+  const handleResGoogle = async (credentialResponse: any) => {
     await loginGmail(credentialResponse.tokenId);
     handleClose();
   };
@@ -86,7 +84,7 @@ const ModalLoginGmail = () => {
           </Typography>
 
           <GoogleLogin
-            clientId="895399845840-c0eisal6806qg2hgsejkh3hksno2onjb.apps.googleusercontent.com"
+            clientId="61272495451-6r5n3q6c8956m1btil765ut86c7ca8e8.apps.googleusercontent.com"
             onSuccess={(response) => {
               console.log(response);
               handleResGoogle(response);
