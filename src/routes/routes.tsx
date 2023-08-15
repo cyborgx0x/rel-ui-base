@@ -1,23 +1,23 @@
-import { HashRouter as Router, Routes , Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 
 import AuthGuard from '../components/Auth/AuthGuard';
 import GuestGuard from '../components/Auth/GuestGuard';
 import { Layout } from '../components/Layout';
 import PricingService from '../pages/Pricing/PricingService';
 import SearchDetail from '../pages/search/SearchDetail';
-
+import SearchName from '../pages/search/SearchName';
 
 const ListRouter = () => {
   return (
     <Router>
-      <Routes >
+      <Routes>
         <Route
           key="erp"
           path="/"
           Component={() => (
             <GuestGuard>
               <Layout>
-                <SearchDetail />
+                <SearchName />
               </Layout>
             </GuestGuard>
           )}
@@ -25,7 +25,6 @@ const ListRouter = () => {
         <Route
           key="full_search"
           path="/full_search"
-          
           Component={() => (
             <GuestGuard>
               <Layout>
@@ -37,7 +36,6 @@ const ListRouter = () => {
         <Route
           key="pricing"
           path="/pricing"
-          
           Component={() => (
             <AuthGuard>
               <Layout>
@@ -46,7 +44,7 @@ const ListRouter = () => {
             </AuthGuard>
           )}
         />
-      </Routes >
+      </Routes>
     </Router>
   );
 };
