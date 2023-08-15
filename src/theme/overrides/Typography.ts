@@ -5,7 +5,7 @@ export default function Typography(theme: any) {
     MuiTypography: {
       styleOverrides: {
         root: {
-          color: '#000000',
+          color: '#fff',
           fontSize: 14,
         },
         paragraph: {

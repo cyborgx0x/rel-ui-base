@@ -39,10 +39,12 @@ export default function Button(theme: any) {
           boxShadow: theme.customShadows.error,
         },
         // outlined
-        outlinedInherit: {
-          border: `1px solid ${theme.palette.grey[500_32]}`,
+        outlined: {
+          border: 'none',
+          color: theme.palette.text.primary,
           '&:hover': {
             backgroundColor: theme.palette.action.hover,
+            border: 'none',
           },
         },
         textInherit: {
