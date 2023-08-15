@@ -80,23 +80,11 @@ const ModalLoginGmail = () => {
             },
           ]}
         >
-          <Box component="img" src={Logo} sx={{ width: 60, height: 48 }} />
+          {/* <Box component="img" src={Logo} sx={{ width: 60, height: 48 }} /> */}
           <Typography id="modal-modal-title" variant="h6" component="h2" sx={{ marginTop: 2, marginBottom: 2 }}>
             Welcome to ReconSentinel Engine
           </Typography>
 
-          <GoogleLogin
-            clientId="61272495451-6r5n3q6c8956m1btil765ut86c7ca8e8.apps.googleusercontent.com"
-            onSuccess={(response) => {
-              console.log(response);
-              handleResGoogle(response);
-            }}
-            isSignedIn={false}
-            cookiePolicy="single_host_origin"
-            prompt="consent"
-          />
-
-          <Typography sx={{ marginTop: 2, marginBottom: 2 }}>----------------- or -----------------</Typography>
           <TextField
             id="outlined-basic"
             label="Email"
@@ -133,16 +121,30 @@ const ModalLoginGmail = () => {
               onKeyDown={handleKeyDown}
             />
           </FormControl>
+
+          <Typography sx={{ marginTop: 2, marginBottom: 2 }}>----------------- or -----------------</Typography>
+
+          <GoogleLogin
+            clientId="61272495451-6r5n3q6c8956m1btil765ut86c7ca8e8.apps.googleusercontent.com"
+            onSuccess={(response) => {
+              console.log(response);
+              handleResGoogle(response);
+            }}
+            isSignedIn={false}
+            cookiePolicy="single_host_origin"
+            prompt="consent"
+          />
+
           <Button
-            variant="contained"
-            sx={{ marginTop: 1 }}
+            variant="outlined"
+            sx={{ marginTop: '30px' }}
             onClick={() => {
               handleUserLocal(accountLocal, setAccountLocal);
             }}
           >
             Log In
           </Button>
-          <Typography id="modal-modal-description" sx={{ mt: 2, justifyContent: 'center' }}>
+          <Typography id="modal-modal-description" sx={{ mt: 2, justifyContent: 'center', textAlign: 'center' }}>
             By continuing, you agree to ReconSentinel Engine's Terms of Service and acknowledge you've read our Privacy
             Policy
           </Typography>
