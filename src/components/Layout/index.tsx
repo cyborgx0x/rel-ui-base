@@ -6,6 +6,7 @@ import { FOOTER_HEIGHT } from '../../utils/constants';
 import { Footer } from '../Footer';
 import { Header } from '../Header';
 import { Navigation } from '../Navigation';
+import DarkBackground from '../../assets/image/background_dark.jpg';
 
 interface Props {
   children: any;
@@ -18,13 +19,28 @@ export const Layout = ({ children }: Props) => {
   return (
     <LayoutWrapper>
       <ContentWrapper>
-        <Box component="header">
-          <Header toggleNavigation={toggleNavigation} />
-        </Box>
+        {/* <Box component="header"> */}
+        {/* <Header toggleNavigation={toggleNavigation} /> */}
+        <Header />
+        {/* </Box> */}
         {/* <Navigation open={open} handleClose={toggleNavigation} /> */}
-        <Box component="main" sx={{ flexGrow: 1 }}>
+        <Box
+          component="main"
+          sx={{
+            flexGrow: 1,
+            backgroundImage: `url(${DarkBackground})`,
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+          }}
+        >
           <DrawerHeader />
-          <Box sx={{ width: '100%', padding: 2, background: 'rgba(255, 255, 255, 0.2)' }}>{children}</Box>
+          <Box
+            sx={{
+              width: '100%',
+            }}
+          >
+            {children}
+          </Box>
         </Box>
       </ContentWrapper>
       {/* <Box component="footer">
@@ -37,9 +53,8 @@ export const Layout = ({ children }: Props) => {
 const LayoutWrapper = styled('div')`
   min-height: 100vh;
   background-image: linear-gradient(#ccccdc 1px, transparent 1px),
-  linear-gradient(to right, #ccccdc 1px, transparent 1px);
+    linear-gradient(to right, #ccccdc 1px, transparent 1px);
   background-size: 100px 100px;
-  
 `;
 
 const ContentWrapper = styled('div')`
@@ -48,7 +63,6 @@ const ContentWrapper = styled('div')`
   display: grid;
   background: radial-gradient(transparent, #f4f5f7 85%);
   height: 100vh;
-  
 `;
 
 const DrawerHeader = styled('div')(({ theme }) => ({

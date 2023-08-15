@@ -6,10 +6,11 @@ import { SelectChangeEvent } from '@mui/material/Select';
 import * as _ from 'lodash';
 import { useMediaQuery } from 'react-responsive';
 
-import icNotFound from '@/assets/image/ic_not_found.png';
-import ItemRow from '@/components/common/ItemRow';
-import useShowModalLoginGmail from '@/Hooks/common/useShowModalLoginGmail';
-import useSearch from '@/Hooks/useSearch';
+import icNotFound from '../../assets/image/ic_not_found.png';
+import ItemRow from '../../components/common/ItemRow';
+import useShowModalLoginGmail from '../../Hooks/common/useShowModalLoginGmail';
+import useSearch from '../../Hooks/useSearch';
+import SearchTextField from './SearchTextField';
 
 export interface DataSearch {
   Gender: string[];
@@ -54,8 +55,11 @@ const SearchName = () => {
   };
   const [typeSearch, setTypeSearch] = useState('phone:');
 
-  const handleChange = (event: SelectChangeEvent) => {
-    setTypeSearch(event.target.value as string);
+  // const handleChange = (event: SelectChangeEvent) => {
+  //   setTypeSearch(event.target.value as string);
+  // };
+  const handleChange = (selected: string) => {
+    setTypeSearch(selected);
   };
   const handleSearch = async () => {
     let valueSearchConvert = valueSearch;
@@ -94,17 +98,25 @@ const SearchName = () => {
               display: 'flex',
               justifyContent: 'center',
               alignItems: 'center',
-              fontWeight: 'bolder',
-              color: 'Highlight',
-              fontSize: isMobile ? 40 : 80,
+              fontWeight: 'bold',
+              color: '#fff',
+              fontSize: isMobile ? 30 : 80,
             }}
           >
             ReconSentinel Engine
           </Typography>
         )}
 
-        <Stack direction="row">
-          <FormControl
+        <Stack direction="row" sx={{ display: 'flex', justifyContent: 'center', marginTop: '40px' }}>
+          <SearchTextField
+            setValueSearch={setValueSearch}
+            valueSearch={valueSearch}
+            handleSearch={handleSearch}
+            typeSearch={typeSearch}
+            isMobile={isMobile}
+            handleChange={handleChange}
+          />
+          {/* <FormControl
             sx={{
               minWidth: 140,
               '@media (max-width: 767px)': {
@@ -148,7 +160,7 @@ const SearchName = () => {
             }}
           >
             Search
-          </Button>
+          </Button> */}
         </Stack>
         {accessToken && (
           <Typography
@@ -159,7 +171,7 @@ const SearchName = () => {
           </Typography>
         )}
       </Stack>
-      {! _.isEmpty(data) && (
+      {!_.isEmpty(data) && (
         <Box boxShadow={10} borderRadius={2} width="100%" marginTop={4}>
           <ItemRow title="PII" content={PII || ['Không tìm thấy dữ liệu']} />
           <ItemRow title="Full Name" content={FullName || ['Không tìm thấy dữ liệu']} />

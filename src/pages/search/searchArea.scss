@@ -1,0 +1,60 @@
+.searchInput {
+  border: none;
+  padding: 10px 10px;
+  width: 90%;
+  font-size: 17px;
+  color: #fff;
+  @media (max-width: 767px) {
+    min-width: 130px;
+  }
+}
+
+.searchInput:focus {
+  outline: none;
+}
+
+.card-wrapper {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  position: relative;
+  width: 36rem;
+  height: 22rem;
+  border-radius: 10px;
+}
+
+.card-infor {
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
+  width: 35.4rem;
+  height: 21.4rem;
+  position: absolute;
+  top: 0.3rem;
+  right: 0.3rem;
+  border-radius: 10px;
+}
+
+.card-avatar {
+  position: absolute;
+  width: 10rem;
+  height: 12rem;
+  top: 4rem;
+  right: 23rem;
+}
+
+.row-hidden {
+  padding: 8px 32px;
+  width: 500px;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.title-hidden {
+  background-color: rgba(128, 128, 128, 0.205);
+  height: 20px;
+  width: 100px;
+}
+
+.content-hidden {
+  background-color: rgba(128, 128, 128, 0.205);
+  height: 20px;
+  width: 252px;
+}
