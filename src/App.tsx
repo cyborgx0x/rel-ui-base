@@ -36,8 +36,10 @@ function App() {
     <CommonProvider>
       <AuthProvider>
         <ThemeModeContext.Provider value={themeMode}>
-          <ThemeConfig mode={mode}>
-            <ThemePrimaryColor mode={mode}>
+          {/* <ThemeConfig mode={mode}>
+            <ThemePrimaryColor mode={mode}> */}
+          <ThemeConfig mode={'dark'}>
+            <ThemePrimaryColor mode={'dark'}>
               <BaseOptionChartStyle />
               <GlobalStyles />
               <SnackbarProvider

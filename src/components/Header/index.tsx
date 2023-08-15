@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 
 import { AppBar, Box, Toolbar, Button, Stack } from '@mui/material';
+import VpnKeyOutlinedIcon from '@mui/icons-material/VpnKeyOutlined';
 import { gapi } from 'gapi-script';
 import { useNavigate } from 'react-router-dom';
 
@@ -67,21 +68,21 @@ export const Header = () => {
       >
         <Toolbar disableGutters variant="dense">
           {/* <Hamburger toggleNavigation={toggleNavigation} /> */}
-          <Button
+          {/* <Button
             onClick={() => {
               navigate('');
               window.location.reload();
             }}
           >
             <Box component="img" src={Logo} sx={{ width: 60, height: 48 }} />
-          </Button>
+          </Button> */}
           <Box sx={{ flexGrow: 1 }} />
           <Box sx={{ display: { xs: 'none', md: 'flex', alignItems: 'center' } }}>
             {/* <ThemeSwitcher /> */}
             {/* <Messages total={15} />
             <Notifications total={20} /> */}
             {/* <UserAccount onClick={handleProfileMenuOpen} /> */}
-            <Button
+            {/* <Button
               variant="text"
               style={{ color: 'black', textTransform: 'none' }}
               onClick={() => {
@@ -107,7 +108,7 @@ export const Header = () => {
               }}
             >
               Pricing
-            </Button>
+            </Button> */}
             {/* <Button variant="outlined" style={{ marginRight: 10, marginLeft: 10, textTransform: 'none' }}>
               Log In
             </Button> */}
@@ -124,7 +125,7 @@ export const Header = () => {
                   />
                   <span
                     style={{
-                      color: 'black',
+                      color: '#fff',
                       fontSize: 14,
                       fontWeight: 'bold',
                       flex: 1,
@@ -138,13 +139,14 @@ export const Header = () => {
               </Button>
             ) : (
               <Button
-                variant="contained"
+                variant="outlined"
                 style={{ marginRight: 10, textTransform: 'none' }}
                 onClick={() => {
                   setShowModalLoginGmail({ isShow: true });
                 }}
               >
                 Sign In
+                <VpnKeyOutlinedIcon sx={{ marginLeft: '5px' }} />
               </Button>
             )}
           </Box>
