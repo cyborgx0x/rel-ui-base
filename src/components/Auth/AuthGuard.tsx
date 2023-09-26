@@ -10,9 +10,9 @@ interface IProps {
 const AuthGuard = ({ children }: IProps) => {
   const { isAuthenticated } = useUser();
 
-  if (!isAuthenticated) {
-    return <Navigate to="/auth/login" />;
-  }
+  // if (!isAuthenticated) {
+  //   return <Navigate to="/auth/login" />;
+  // }
 
   return <>{children}</>;
 };

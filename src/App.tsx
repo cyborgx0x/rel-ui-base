@@ -25,8 +25,8 @@ function App() {
   );
   useEffect(() => {
     function start() {
-      gapi.client.init({
-        clientId: '895399845840-c0eisal6806qg2hgsejkh3hksno2onjb.apps.googleusercontent.com',
+      gapi.auth2.init({
+        clientId: '61272495451-6r5n3q6c8956m1btil765ut86c7ca8e8.apps.googleusercontent.com',
         scope: '',
       });
     }
